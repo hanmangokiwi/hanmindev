@@ -1,0 +1,39 @@
+nav {
+    background-color: black;
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+}
+
+.header-button {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    margin: 3px;
+
+    margin-right: 16px!important;
+
+}
+.header-button:hover {
+    opacity:0.5;
+    text-decoration: none;
+}
+
+.home-image{
+    height:40px;
+    resize: both;
+    text-decoration: none;
+}
+
+.home-image:hover{
+    opacity:0.5;
+    text-decoration: none;
+}

@@ -1,25 +1,56 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
 
+import Header from './components/Header';
+
+import Home from './pages/Home';
+import Mirrorboard from "./pages/projects/Mirrorboard";
+import Projects from "./pages/projects/Projects";
+import { ThemeProvider} from "@mui/material";
+import {createTheme} from "@mui/material/styles";
+import Contact from "./pages/Contact";
+import Tools from "./pages/Tools";
+import ScrollToTop from "./helpers/ScrollToTop";
+
+
+const MuiTheme = createTheme({
+    palette: {
+        mode: 'dark',
+        text: {
+            primary: "#dadada",
+            secondary: "#dadada",
+            disabled: "#dadada"
+        }
+    },
+    components: {
+        MuiLink: {
+            defaultProps: {
+                color: "#3ea0fd",
+            }
+        }
+    }
+});
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThemeProvider theme={MuiTheme}>
+      <Router>
+          <ScrollToTop />
+          <header>
+            <Header />
+          </header>
+          <div className="mainViewer">
+              <Routes>
+                  <Route index path="/" element={<Home />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/tools" element={<Tools />} />
+                  <Route path="/contact" element={<Contact />} />
+
+
+                  <Route path="/mirrorboard" element={<Mirrorboard />} />
+              </Routes>
+          </div>
+      </Router>
+      </ThemeProvider>
   );
 }
 
