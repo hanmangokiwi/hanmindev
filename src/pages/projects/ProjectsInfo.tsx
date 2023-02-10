@@ -6,6 +6,7 @@ import React, {ReactElement, useEffect, useState} from "react";
 
 import './ProjectsMarkdown.css'
 import VideoPlayer from "../../components/VideoPlayer";
+import {Skeleton} from "@mui/material";
 
 
 function Markdown(props: {md: string}) {
@@ -23,12 +24,17 @@ function Markdown(props: {md: string}) {
 
 
     return (
-        <ReactMarkdown className="markdown-body" children={md} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw]}
+        md? <ReactMarkdown className="markdown-body" children={md} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw]}
                        components={
                            {
-                               img:({node,...props})=><img style={{maxWidth:'100%'}}{...props}/>,
+                               // eslint-disable-next-line jsx-a11y/alt-text
+                               img:({node,...props})=><img style={{maxWidth:'100%'}}{...props} />,
+                               // eslint-disable-next-line jsx-a11y/anchor-has-content
                                a:({node,...props})=><a target="_blank" rel="noreferrer" style={{color: "#3ea0fd"}} {...props}/>
-                           }}/>
+                           }}/> :
+            (
+                <Skeleton variant="rectangular" animation="wave" height={100} />
+            )
     )
 }
 
@@ -58,13 +64,25 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
         name: "Pitch.ai - nwHacks 2022 First Place",
         subtitle: "Real-time AI-powered presentation creation",
         image: "https://i.ytimg.com/vi/j1iAbKbSlD8/hqdefault.jpg",
-        description: `Being unable to create visual presentations can be a barrier to learning, a reason for feeling left out, or a career disadvantage. Pitch.ai changes that.`
+        description: `Being unable to create visual presentations can be a barrier to learning, a reason for feeling left out, or a career disadvantage. Pitch.ai changes that.`,
+        content: (
+            <>
+                <VideoPlayer type="iframe" videoLink="https://www.youtube.com/embed/j1iAbKbSlD8"/>
+                <Markdown md="pitch"/>
+            </>
+        )
     },
     'habifix': {
         name: "HabiFix - Hack the 6ix 2021 Third Place",
         subtitle: "Successful people are the product of successful habits. Let's fix yours.",
         image: "https://i.ytimg.com/vi/r-5LTZLSj7Y/hqdefault.jpg",
-        description: `We took the advice from a Harvard research paper to create a program that would not only help break unhealthy habits, but form healthy ones in place as well.`
+        description: `We took the advice from a Harvard research paper to create a program that would not only help break unhealthy habits, but form healthy ones in place as well.`,
+        content: (
+            <>
+                <VideoPlayer type="iframe" videoLink="https://www.youtube.com/embed/r-5LTZLSj7Y"/>
+                <Markdown md="habifix"/>
+            </>
+        )
     },
     'mirrorboard': {
         name: "Mirrorboard",
@@ -79,7 +97,13 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
         name: "Real-Time 3D Graphing in Vanilla Minecraft",
         subtitle: "Who said games can't be educational?",
         video: "https://thumbs.gfycat.com/ColorfulTerribleBlackrhino-mobile.mp4",
-        description: `The third iteration of this calculator brings incredible performance benefits and a new UI. At 8 kiloFLOPS, it is 100x faster than the SAT-approved TI-84.`
+        description: `The third iteration of this calculator brings incredible performance benefits and a new UI. At 8 kiloFLOPS, it is 100x faster than the SAT-approved TI-84.`,
+        content: (
+            <>
+                <VideoPlayer type="iframe" videoLink="https://www.youtube.com/embed/qeyp5FN_WKk"/>
+                <Markdown md="3dgrapher"/>
+            </>
+        )
     },
     'mcmv': {
         name: "MCMV",

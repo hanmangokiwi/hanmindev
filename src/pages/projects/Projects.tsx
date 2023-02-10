@@ -1,4 +1,4 @@
-import {Box, Grid, IconButton, Paper, styled, Typography} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 import React, {useEffect, useState} from "react";
 import ScrollPage from "../../components/ScrollPage";
 import ProjectCard from "../../components/ProjectCard";
