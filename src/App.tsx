@@ -41,7 +41,7 @@ function App() {
           <div className="mainViewer">
               <Routes>
                   <Route index path="/" element={<Home />} />
-                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/projects/:projectName?" element={<Projects />} />
                   <Route path="/tools" element={<Tools />} />
                   <Route path="/contact" element={<Contact />} />
 
