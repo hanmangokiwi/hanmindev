@@ -2,6 +2,7 @@
     float: bottom;
     background-color: #2a2c2d;
     width: 100%;
+    height: 100px;
     display: flex;
     justify-content: center;
 }
@@ -12,8 +13,6 @@
     width: 100%;
     max-width: 100vw;
     min-width: 300px;
-
-    height: 100%;
 
     display: flex;
     justify-content: center;

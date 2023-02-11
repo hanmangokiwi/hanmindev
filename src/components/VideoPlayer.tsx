@@ -1,11 +1,14 @@
 import React, {useRef} from "react";
+import useOnScreen from "../helpers/hooks";
 
 function VideoPlayer(props: { raw?: boolean; type: string; videoLink: string; play?: boolean; autoplay?: boolean }) {
     const wrapper = (inside: any) => <div className="videoWrapper" style={{marginBottom: "10px"}}>{inside}</div>
     const video = useRef<HTMLVideoElement>(null);
 
+    const isVisible = useOnScreen(video)
+
     if (video.current){
-        if (props.play || props.autoplay) {
+        if ((props.play || props.autoplay) && isVisible) {
             video.current.play();
         }else{
             video.current.pause();
@@ -36,7 +39,7 @@ function VideoPlayer(props: { raw?: boolean; type: string; videoLink: string; pl
 
     } else if (props.type === "image") {
         return wrapper(
-            <img width="100%" height="100%" src={videoLink} />
+            <img width="100%" height="100%" src={videoLink}  alt={videoLink}/>
         )
     } else {
         return <p>VideoPlayer Error</p>

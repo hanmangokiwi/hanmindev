@@ -1,4 +1,4 @@
-import {MutableRefObject, useEffect, useRef, useState} from "react";
+import {MutableRefObject, RefObject, useEffect, useMemo, useRef, useState} from "react";
 
 function useHover<T>(): [MutableRefObject<T>, boolean] {
     const [value, setValue] = useState<boolean>(false);
@@ -50,5 +50,23 @@ function useWindowDimensions() {
     return windowDimensions;
 }
 
+export default function useOnScreen(ref: RefObject<HTMLElement>) {
 
-export {useHover, useWindowDimensions};
+    const [isIntersecting, setIntersecting] = useState(false)
+
+    const observer = useMemo(() => new IntersectionObserver(
+        ([entry]) => setIntersecting(entry.isIntersecting)
+    ), [])
+
+
+    useEffect(() => {
+        if (!ref.current) return
+        observer.observe(ref.current)
+        return () => observer.disconnect()
+    }, [observer, ref])
+
+    return isIntersecting
+}
+
+
+export {useHover, useWindowDimensions,useOnScreen};

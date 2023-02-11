@@ -1,36 +1,49 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import VideoPlayer from "./VideoPlayer";
+import useOnScreen, {useWindowDimensions} from "../helpers/hooks";
+import {useEffect, useRef} from "react";
 
 
 export default function ProjectCard(props: {project: any}) {
     const [show, setShow] = React.useState(false);
 
+    const { width } = useWindowDimensions();
+
+    const ref = useRef<HTMLDivElement>(null)
+    const isVisible = useOnScreen(ref)
+
+    const mobilePlay = width < 770 && isVisible
+
+    useEffect(() => {
+        setShow(mobilePlay);
+    }, [mobilePlay])
+
     return (
         <Card
+            ref={ref}
             sx={[
-                (theme) => ({
+                () => ({
                     borderRadius: 4,
                     transition: "transform 0.05s ease-in-out",
-                    '&:hover': {
-                        transform: 'scale(1.05)',
-                        boxShadow: '0 6px 20px 0 rgba(0,0,0,0.38)',
-                    },
+                    '@media (hover: hover)': {
+                        '&:hover': {
+                            transform: 'scale(1.05)',
+                            boxShadow: '0 6px 20px 0 rgba(0,0,0,0.38)',
+                        }
+                    }
                 }),
             ]}
-            style={{cursor:'pointer'}}
+            style={{cursor:'pointer', width: 'auto', maxWidth: '100%'}}
 
             onMouseOver={() => setShow(true)}
             onMouseOut={() => setShow(false)}
+
+
         >
             <CardHeader
                 title={props.project.name}
