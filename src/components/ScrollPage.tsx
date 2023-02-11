@@ -55,7 +55,7 @@ function Footer() {
     );
 }
 
-function ScrollPage(props: { children: React.ReactNode; scrollbar?: boolean }) {
+function ScrollPage(props: { children: React.ReactNode }) {
     return (
         <div className="mainScroll">
             <article>

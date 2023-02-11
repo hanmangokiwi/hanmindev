@@ -22,6 +22,7 @@ function Projects() {
 
     useEffect(() => {
         if (focusedProject === "") {
+            document.body.style.overflow = 'unset';
             if (params.projectName) {
                 setFocusedProject(params.projectName);
                 return;
@@ -37,6 +38,9 @@ function Projects() {
             }
 
             const content = getProject(focusedProject).content;
+
+            document.body.style.overflow = 'hidden';
+
             if(content){
                 setProjectDOM(content);
             }else{
@@ -61,7 +65,7 @@ function Projects() {
 
     return (
         <>
-        <ScrollPage scrollbar={false}>
+        <ScrollPage>
             <div className="wide-viewer">
                 <div className="center-text-box">
                     <Typography variant="h3" component="h2" align="center">
@@ -77,13 +81,11 @@ function Projects() {
                 <div>
                     <Grid container spacing={2} columns={4 * projectsPerColumn}>
                         {Object.keys(projects).map((project, index) => (
-
-
-                            <Grid item md={4} key={index}>
+                            <Grid style={{width: "100%"}} item md={4} key={index}>
                                 <div onClick={() => {setFocusedProject(project); navigate(`/projects/${project}`)}}>
-                                <ProjectCard
-                                    project={getProject(project)}
-                                />
+                                    <ProjectCard
+                                        project={getProject(project)}
+                                    />
                                 </div>
                             </Grid>
                         ))}

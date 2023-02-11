@@ -22,18 +22,19 @@ nav {
     margin-right: 16px!important;
 
 }
-.header-button:hover {
-    opacity:0.5;
-    text-decoration: none;
-}
 
 .home-image{
     height:40px;
     resize: both;
     text-decoration: none;
 }
-
-.home-image:hover{
-    opacity:0.5;
-    text-decoration: none;
+@media (hover: hover) {
+    .header-button:hover {
+        opacity:0.5;
+        text-decoration: none;
+    }
+    .home-image:hover {
+        opacity: 0.5;
+        text-decoration: none;
+    }
 }

@@ -27,6 +27,7 @@ section {
 
 
 :root {
+
 }
 
 h1{
@@ -48,19 +49,16 @@ li{
 .mainViewer {
     padding-top: 50px;
     width: 100vw;
-    overflow: hidden;
 }
 
 article{
     flex:1;
-    overflow: hidden;
     min-height: calc(100vh - 150px);
 }
 
 
 .mainScroll {
     position: absolute;
-    overflow: hidden;
     width: 100%;
     max-width: 100vw;
     display: flex;
