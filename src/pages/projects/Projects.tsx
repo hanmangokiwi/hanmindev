@@ -22,7 +22,7 @@ function Projects() {
 
     useEffect(() => {
         if (focusedProject === "") {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflowY = 'auto';
             if (params.projectName) {
                 setFocusedProject(params.projectName);
                 return;
@@ -38,8 +38,7 @@ function Projects() {
             }
 
             const content = getProject(focusedProject).content;
-
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflowY = 'hidden';
 
             if(content){
                 setProjectDOM(content);

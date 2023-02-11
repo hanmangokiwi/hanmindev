@@ -5,13 +5,27 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import VideoPlayer from "./VideoPlayer";
+import useOnScreen, {useWindowDimensions} from "../helpers/hooks";
+import {useEffect, useRef} from "react";
 
 
 export default function ProjectCard(props: {project: any}) {
     const [show, setShow] = React.useState(false);
 
+    const { width } = useWindowDimensions();
+
+    const ref = useRef<HTMLDivElement>(null)
+    const isVisible = useOnScreen(ref)
+
+    const mobilePlay = width < 770 && isVisible
+
+    useEffect(() => {
+        setShow(mobilePlay);
+    }, [mobilePlay])
+
     return (
         <Card
+            ref={ref}
             sx={[
                 () => ({
                     borderRadius: 4,
@@ -28,6 +42,8 @@ export default function ProjectCard(props: {project: any}) {
 
             onMouseOver={() => setShow(true)}
             onMouseOut={() => setShow(false)}
+
+
         >
             <CardHeader
                 title={props.project.name}

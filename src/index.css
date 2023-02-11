@@ -8,6 +8,9 @@ body {
   background-color: rgb(36, 39, 41);
 }
 
+html {
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -22,12 +25,14 @@ html *
 section {
   display: flex;
   justify-content: center;
+    overflow: hidden;
 }
 
 
 
 :root {
-
+    height: 100vh;
+    min-height: 100vh;
 }
 
 h1{
