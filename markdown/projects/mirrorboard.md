@@ -1,5 +1,8 @@
-![](https://i.imgur.com/RLtDT4C.png )
-*The Mirrorboard Diagram*
+[//]: # (![]&#40;https://i.imgur.com/RLtDT4C.png &#41;)
+
+[//]: # (*The Mirrorboard Diagram*)
+
+*Demonstration video of using Mirrorboard. This video is old; currently, I can type at 70 WPM with Mirrorboard*
 
 Mirrorboard is a superset layout to the standard QWERTY keyboard layout which allows you to type with only one hand.
 
