@@ -6,7 +6,7 @@ import React, {ReactElement, useEffect, useState} from "react";
 
 import './ProjectsMarkdown.css'
 import VideoPlayer from "../../components/VideoPlayer";
-import {IconButton, Skeleton, SvgIcon, Tooltip, Typography} from "@mui/material";
+import {IconButton, Skeleton, SvgIcon, Tooltip} from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LaunchIcon from '@mui/icons-material/Launch';
@@ -226,9 +226,6 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
             <>
                 <VideoPlayer type="iframe" videoLink="https://www.youtube.com/embed/25-bn42cae4"/>
                 <Markdown md="mirrorboard"/>
-                <Typography variant="body1" color="text.secondary" align="center">
-                    Check out the project!
-                </Typography>
             </>
         ),
         externalLinks: (
