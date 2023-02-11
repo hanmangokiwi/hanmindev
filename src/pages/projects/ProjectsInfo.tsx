@@ -32,7 +32,7 @@ function Markdown(props: {md: string}) {
                                // eslint-disable-next-line jsx-a11y/anchor-has-content
                                a:({node,...props})=><a target="_blank" rel="noreferrer" style={{color: "#3ea0fd"}} {...props}/>,
                                // @ts-ignore
-                               video: ({node, ...props}) => <p>{<VideoPlayer type={props.children.toString().split('-')[0]} videoLink={`https://thumbs.gfycat.com/${props.children.toString().split('-')[1]}-mobile.mp4`} play={true} autoplay={true} />}</p>
+                               video: ({node, ...props}) => <p>{<VideoPlayer raw type={props.children.toString().split(';')[0]} videoLink={props.children.toString().split(';')[1]} play={true} autoplay={true} />}</p>
                            }}/> :
             (
                 <Skeleton variant="rectangular" animation="wave" height={100} />
@@ -123,7 +123,13 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
         name: "Bitcoin Miner in Minecraft",
         subtitle: "Mining the world-famous cryptocurrency on the world-famous mining software",
         image: "https://cdn.discordapp.com/attachments/845801357646495787/1073072934706499666/image.png",
-        description: `Tuition is expensive. Bitcoin (was) at it's all-time high. Why not mine it in *Mine*craft?`
+        description: `Tuition is expensive. Bitcoin (was) at it's all-time high. Why not mine it in *Mine*craft?`,
+        content: (
+            <>
+                <VideoPlayer type="iframe" videoLink="https://www.youtube.com/embed/sLClfQdmzPw"/>
+                <Markdown md="mcminer"/>
+            </>
+        )
     },
     'mccloth': {
         name: "Cloth Physics in Minecraft",

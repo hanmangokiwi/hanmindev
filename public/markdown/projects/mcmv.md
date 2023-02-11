@@ -2,7 +2,7 @@
 
 Do you love quaternions? I̶̢̖̾͆ ̷̱̫͛ḽ̸̡̕ove̸ ̴̣̔̎q̷u̷̎͝at̴ë̸́r̴̦͒n̸i̸̫͋̾o̴͊ņ̵̓͝s.̴̱̭̈́͗ Ẁ̷h̷̢̞̠̪͕͚͆̉y̶̲̝͎̜̙͑ ̵͙̗̱̫̣͔̳̜͗́̕d̷̑̓͆̕o̵͊̈́̌͝n̵̟̠̥̼͒̄̈́̈́̅'̵̭͎̫͓̟̬̾ţ̸͈̰̞̓̉̑̈́̔̒ ̴̧͇͈̮̙̯̯̦̬́̑͘̚y̷͊͋̉̈̚͠o̴̧̅̆̕͝u̸͎̳͑́͒͊̔̋̈͝͠ ̶̼̔̍l̶͈̙̝̯͔̾o̶̰̺͎̾v̸̗̗̪̦͙̀̉͛͂e̵̎̏̅̔͆̐̏̏̓ͅ ̶̫̓ͅq̸̮̜̅̋̈́̉̄ų̵̤͌͊́̏͗̃͋ȁ̸̡̡̞̲͔̻̖̥͑̅̇̄͛̋̅̏t̸̺̪̀̎̉̓͊̅e̸̩̎͒̊̈̕ŗ̴͖͈́͊̀͒̏̀́͝n̸̝̯̪̈́̔į̸͓͉̉͊̐̊̌͒́̕̕o̶̠̙͓̼̽͌n̵̢͔͍͒̚͠s̸̛̰̪͙͓̞̰͙̪̤͑̚?̵̣̳̣͓͙̱̤̃͛̏̎̚͝͝
 
-This might be the most difficult project I've ever worked on. At least I finally learnt what a [quaternion](https://en.wikipedia.org/wiki/Quaternion) is (no I didn't)
+This might be the most difficult project I've ever worked on. At least I finally learnt what a [quaternion](https://en.wikipedia.org/wiki/Quaternion) is (no I haven't)
 
 ![quaternion](https://cdn.discordapp.com/attachments/1073687235586691132/1073771488445997186/FLHab8ZVEAUsPDS.png)
 
@@ -18,7 +18,7 @@ Have I heard about quaternions? Yes, it was that scary thing that kept showing u
 
 Well, it was difficult, I spent a lot of time trying to do something incorrectly due to my misconceptions, but in the end I got it.
 
-<video>gfycat-ColossalHiddenAnura</video>
+<video>gfycat;ColossalHiddenAnura</video>
 *Armature Skeletons performing a dance in Minecraft*
 
 Unfortunately that was the best I could do at the moment. These were based on simple vector rotation, and there were no rotations on the vector axis, and I couldn't give them custom models. A large rewrite was required.
@@ -35,7 +35,7 @@ This was much more complicated, especially since I wanted to make it work for an
 
 It didn't help that the rotation order in Minecraft was not well documented, there were no sources online explaining how to convert quaternions into Euler angles of any xyz order, and the fact that my knowledge was very limited.
 
-<video>gfycat-FoolhardyHugeIrishwaterspaniel</video>
+<video>gfycat;FoolhardyHugeIrishwaterspaniel</video>
 *Trying to figure out rotation order of a Minecraft armor stand*
 
 Turns out that a few things are backwards for some absurd reason. Regardless I figured it out somehow.
@@ -46,7 +46,7 @@ Turns out that a few things are backwards for some absurd reason. Regardless I f
 
 With that out of the way, I could finally import the motion data of my favorite fictional band into Minecraft.
 
-<video>gfycat-CriminalKaleidoscopicAcaciarat</video>
+<video>gfycat;CriminalKaleidoscopicAcaciarat</video>
 *Leo/need performing Roki in Minecraft*
 
 You'd think that was the end of it, but I ended up doing three complete rewrites of the program. The first one was a complete mess, the second one was a bit better, but no matter what I tried, there was always something wrong with it. At some point in time I renamed the project to MCMV from a suggestino from a friend.
