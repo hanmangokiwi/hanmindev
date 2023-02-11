@@ -23,7 +23,7 @@ function Projects() {
 
     useEffect(() => {
         if (focusedProject === "") {
-            document.body.style.overflowY = 'auto';
+            document.body.style.overflow = 'auto';
             if (params.projectName) {
                 setFocusedProject(params.projectName);
                 return;
@@ -41,7 +41,7 @@ function Projects() {
 
             const content = getProject(focusedProject).content;
             const externalLink = getProject(focusedProject).externalLinks;
-            document.body.style.overflowY = 'hidden';
+            document.body.style.overflow = 'hidden';
 
             if(content){
                 setProjectDOM(content);
