@@ -10,6 +10,8 @@ import {IconButton, Skeleton, SvgIcon, Tooltip, Typography} from "@mui/material"
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LaunchIcon from '@mui/icons-material/Launch';
+import FeedIcon from '@mui/icons-material/Feed';
+import RedditIcon from '@mui/icons-material/Reddit';
 
 
 function Markdown(props: {md: string}) {
@@ -43,7 +45,7 @@ function Markdown(props: {md: string}) {
     )
 }
 
-const projects: {[projectKey: string]: {name: string; subtitle: string; image?: string; video?: string; description: string; content?: ReactElement}} = {
+const projects: {[projectKey: string]: {name: string; subtitle: string; image?: string; video?: string; description: string; content?: ReactElement; externalLinks?: ReactElement}} = {
     'vidqr': {
         name: "vidqr",
         subtitle: "Queue and Watch Videos Together",
@@ -52,32 +54,29 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
         content: (
             <>
                 <Markdown md="vidqr"/>
-
-                <Typography variant="body1" color="text.secondary" align="center">
-                    Check out the project!
-                </Typography>
-                <div style={{display: "flex", justifyContent: "center"}}>
-                    <Tooltip title="Go to Website">
-                        <IconButton>
-                            <a href="https://vidqr.fly.dev/"
-                               target="_blank"
-                               rel="noreferrer">
-                                <LaunchIcon />
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="GitHub">
-                        <IconButton>
-                            <a href="https://github.com/hanmangokiwi/vidqr"
-                               target="_blank"
-                               rel="noreferrer">
-                                <GitHubIcon />
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                </div>
             </>
-
+        ),
+        externalLinks: (
+            <>
+                <Tooltip title="Go to Website">
+                    <IconButton>
+                        <a href="https://vidqr.fly.dev/"
+                           target="_blank"
+                           rel="noreferrer">
+                            <LaunchIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="GitHub">
+                    <IconButton>
+                        <a href="https://github.com/hanmangokiwi/vidqr"
+                           target="_blank"
+                           rel="noreferrer">
+                            <GitHubIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+            </>
         )
     },
     'lucid': {
@@ -89,44 +88,43 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
             <>
                 <VideoPlayer type="gfycat" videoLink="https://thumbs.gfycat.com/DescriptivePiercingHorsefly-mobile.mp4" autoplay={true}/>
                 <Markdown md="lucid"/>
-                <Typography variant="body1" color="text.secondary" align="center">
-                    Check out the project!
-                </Typography>
-                <div style={{display: "flex", justifyContent: "center"}}>
-                    <Tooltip title="YouTube">
-                        <IconButton>
-                            <a href="https://youtu.be/9e8J4VNFXOM"
-                               target="_blank"
-                               rel="noreferrer">
-                                <YouTubeIcon />
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Devpost">
-                        <IconButton>
-                            <a href="https://devpost.com/software/lucid-ai-95nerk"
-                               target="_blank"
-                               rel="noreferrer">
-                                <SvgIcon>
-                                    <path d="M 11.449219 7.542969 L 10.101562 7.542969 L 10.101562 16.457031 L 11.363281 16.457031 C 14.007812 16.457031 15.222656 14.664062 15.222656 12 C 15.222656 9.019531 14.121094 7.542969 11.449219 7.542969 Z M 11.449219 7.542969 "/>
-                                    <path d="M 17.996094 0.0117188 L 6.003906 0.0117188 L 0 12 L 6.003906 23.988281 L 17.996094 23.988281 L 24 12 Z M 11.363281 19.332031 L 7.621094 19.332031 L 7.621094 4.667969 L 11.542969 4.667969 C 15.148438 4.667969 17.816406 6.660156 17.816406 12 C 17.816406 17.132812 14.605469 19.332031 11.363281 19.332031 Z M 11.363281 19.332031 "/>
-                                </SvgIcon>
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="GitHub">
-                        <IconButton>
-                            <a href="https://github.com/underHA/htn-2022"
-                               target="_blank"
-                               rel="noreferrer">
-                                <GitHubIcon />
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                </div>
+            </>
+        ),
+        externalLinks: (
+            <>
+                <Tooltip title="YouTube">
+                    <IconButton>
+                        <a href="https://youtu.be/9e8J4VNFXOM"
+                           target="_blank"
+                           rel="noreferrer">
+                            <YouTubeIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="Devpost">
+                    <IconButton>
+                        <a href="https://devpost.com/software/lucid-ai-95nerk"
+                           target="_blank"
+                           rel="noreferrer">
+                            <SvgIcon>
+                                <path d="M 11.449219 7.542969 L 10.101562 7.542969 L 10.101562 16.457031 L 11.363281 16.457031 C 14.007812 16.457031 15.222656 14.664062 15.222656 12 C 15.222656 9.019531 14.121094 7.542969 11.449219 7.542969 Z M 11.449219 7.542969 "/>
+                                <path d="M 17.996094 0.0117188 L 6.003906 0.0117188 L 0 12 L 6.003906 23.988281 L 17.996094 23.988281 L 24 12 Z M 11.363281 19.332031 L 7.621094 19.332031 L 7.621094 4.667969 L 11.542969 4.667969 C 15.148438 4.667969 17.816406 6.660156 17.816406 12 C 17.816406 17.132812 14.605469 19.332031 11.363281 19.332031 Z M 11.363281 19.332031 "/>
+                            </SvgIcon>
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="GitHub">
+                    <IconButton>
+                        <a href="https://github.com/underHA/htn-2022"
+                           target="_blank"
+                           rel="noreferrer">
+                            <GitHubIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
             </>
         )
-},
+    },
     'pitch': {
         name: "Pitch.ai - nwHacks 2022 First Place",
         subtitle: "Real-time AI-powered presentation creation",
@@ -136,32 +134,40 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
             <>
                 <VideoPlayer type="iframe" videoLink="https://www.youtube.com/embed/j1iAbKbSlD8"/>
                 <Markdown md="pitch"/>
-                <Typography variant="body1" color="text.secondary" align="center">
-                    Check out the project!
-                </Typography>
-                <div style={{display: "flex", justifyContent: "center"}}>
-                    <Tooltip title="Devpost">
-                        <IconButton>
-                            <a href="https://devpost.com/software/pitch-ai"
-                               target="_blank"
-                               rel="noreferrer">
-                                <SvgIcon>
-                                    <path d="M 11.449219 7.542969 L 10.101562 7.542969 L 10.101562 16.457031 L 11.363281 16.457031 C 14.007812 16.457031 15.222656 14.664062 15.222656 12 C 15.222656 9.019531 14.121094 7.542969 11.449219 7.542969 Z M 11.449219 7.542969 "/>
-                                    <path d="M 17.996094 0.0117188 L 6.003906 0.0117188 L 0 12 L 6.003906 23.988281 L 17.996094 23.988281 L 24 12 Z M 11.363281 19.332031 L 7.621094 19.332031 L 7.621094 4.667969 L 11.542969 4.667969 C 15.148438 4.667969 17.816406 6.660156 17.816406 12 C 17.816406 17.132812 14.605469 19.332031 11.363281 19.332031 Z M 11.363281 19.332031 "/>
-                                </SvgIcon>
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="GitHub">
-                        <IconButton>
-                            <a href="https://github.com/underHA/nwhacks-2022"
-                               target="_blank"
-                               rel="noreferrer">
-                                <GitHubIcon />
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                </div>
+            </>
+        ),
+        externalLinks: (
+            <>
+                <Tooltip title="YouTube">
+                    <IconButton>
+                        <a href="https://youtu.be/j1iAbKbSlD8"
+                           target="_blank"
+                           rel="noreferrer">
+                            <YouTubeIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="Devpost">
+                    <IconButton>
+                        <a href="https://devpost.com/software/pitch-ai"
+                           target="_blank"
+                           rel="noreferrer">
+                            <SvgIcon>
+                                <path d="M 11.449219 7.542969 L 10.101562 7.542969 L 10.101562 16.457031 L 11.363281 16.457031 C 14.007812 16.457031 15.222656 14.664062 15.222656 12 C 15.222656 9.019531 14.121094 7.542969 11.449219 7.542969 Z M 11.449219 7.542969 "/>
+                                <path d="M 17.996094 0.0117188 L 6.003906 0.0117188 L 0 12 L 6.003906 23.988281 L 17.996094 23.988281 L 24 12 Z M 11.363281 19.332031 L 7.621094 19.332031 L 7.621094 4.667969 L 11.542969 4.667969 C 15.148438 4.667969 17.816406 6.660156 17.816406 12 C 17.816406 17.132812 14.605469 19.332031 11.363281 19.332031 Z M 11.363281 19.332031 "/>
+                            </SvgIcon>
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="GitHub">
+                    <IconButton>
+                        <a href="https://github.com/underHA/nwhacks-2022"
+                           target="_blank"
+                           rel="noreferrer">
+                            <GitHubIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
             </>
         )
     },
@@ -174,32 +180,40 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
             <>
                 <VideoPlayer type="iframe" videoLink="https://www.youtube.com/embed/r-5LTZLSj7Y"/>
                 <Markdown md="habifix"/>
-                <Typography variant="body1" color="text.secondary" align="center">
-                    Check out the project!
-                </Typography>
-                <div style={{display: "flex", justifyContent: "center"}}>
-                    <Tooltip title="Devpost">
-                        <IconButton>
-                            <a href="https://devpost.com/software/habifix"
-                               target="_blank"
-                               rel="noreferrer">
-                                <SvgIcon>
-                                    <path d="M 11.449219 7.542969 L 10.101562 7.542969 L 10.101562 16.457031 L 11.363281 16.457031 C 14.007812 16.457031 15.222656 14.664062 15.222656 12 C 15.222656 9.019531 14.121094 7.542969 11.449219 7.542969 Z M 11.449219 7.542969 "/>
-                                    <path d="M 17.996094 0.0117188 L 6.003906 0.0117188 L 0 12 L 6.003906 23.988281 L 17.996094 23.988281 L 24 12 Z M 11.363281 19.332031 L 7.621094 19.332031 L 7.621094 4.667969 L 11.542969 4.667969 C 15.148438 4.667969 17.816406 6.660156 17.816406 12 C 17.816406 17.132812 14.605469 19.332031 11.363281 19.332031 Z M 11.363281 19.332031 "/>
-                                </SvgIcon>
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="GitHub">
-                        <IconButton>
-                            <a href="https://github.com/eqzhou81/HabiFix/"
-                               target="_blank"
-                               rel="noreferrer">
-                                <GitHubIcon />
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                </div>
+            </>
+        ),
+        externalLinks: (
+            <>
+                <Tooltip title="YouTube">
+                    <IconButton>
+                        <a href="https://youtu.be/r-5LTZLSj7Y"
+                           target="_blank"
+                           rel="noreferrer">
+                            <YouTubeIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="Devpost">
+                    <IconButton>
+                        <a href="https://devpost.com/software/habifix"
+                           target="_blank"
+                           rel="noreferrer">
+                            <SvgIcon>
+                                <path d="M 11.449219 7.542969 L 10.101562 7.542969 L 10.101562 16.457031 L 11.363281 16.457031 C 14.007812 16.457031 15.222656 14.664062 15.222656 12 C 15.222656 9.019531 14.121094 7.542969 11.449219 7.542969 Z M 11.449219 7.542969 "/>
+                                <path d="M 17.996094 0.0117188 L 6.003906 0.0117188 L 0 12 L 6.003906 23.988281 L 17.996094 23.988281 L 24 12 Z M 11.363281 19.332031 L 7.621094 19.332031 L 7.621094 4.667969 L 11.542969 4.667969 C 15.148438 4.667969 17.816406 6.660156 17.816406 12 C 17.816406 17.132812 14.605469 19.332031 11.363281 19.332031 Z M 11.363281 19.332031 "/>
+                            </SvgIcon>
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="GitHub">
+                    <IconButton>
+                        <a href="https://github.com/eqzhou81/HabiFix/"
+                           target="_blank"
+                           rel="noreferrer">
+                            <GitHubIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
             </>
         )
     },
@@ -210,33 +224,44 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
         description: `Tired of moving your hand back and forth from the mouse to the keyboard? The answer is probably no but here it is anyways.`,
         content: (
             <>
+                <VideoPlayer type="iframe" videoLink="https://www.youtube.com/embed/25-bn42cae4"/>
                 <Markdown md="mirrorboard"/>
-
                 <Typography variant="body1" color="text.secondary" align="center">
                     Check out the project!
                 </Typography>
-                <div style={{display: "flex", justifyContent: "center"}}>
-                    <Tooltip title="Discord">
-                        <IconButton>
-                            <a href="https://discord.gg/rwNn9HcD56"
-                               target="_blank"
-                               rel="noreferrer">
-                                <SvgIcon viewBox='0 0 127.14 96.36'>
-                                    <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
-                                </SvgIcon>
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="GitHub">
-                        <IconButton>
-                            <a href="https://github.com/hanmangokiwi/mirrorboard"
-                               target="_blank"
-                               rel="noreferrer">
-                                <GitHubIcon />
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                </div>
+            </>
+        ),
+        externalLinks: (
+            <>
+                <Tooltip title="YouTube">
+                    <IconButton>
+                        <a href="https://youtu.be/25-bn42cae4"
+                           target="_blank"
+                           rel="noreferrer">
+                            <YouTubeIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="Discord">
+                    <IconButton>
+                        <a href="https://discord.gg/rwNn9HcD56"
+                           target="_blank"
+                           rel="noreferrer">
+                            <SvgIcon viewBox='0 0 127.14 96.36'>
+                                <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                            </SvgIcon>
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="GitHub">
+                    <IconButton>
+                        <a href="https://github.com/hanmangokiwi/mirrorboard"
+                           target="_blank"
+                           rel="noreferrer">
+                            <GitHubIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
             </>
         )
     },
@@ -249,21 +274,55 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
             <>
                 <VideoPlayer type="iframe" videoLink="https://www.youtube.com/embed/qeyp5FN_WKk"/>
                 <Markdown md="3dgrapher"/>
-
-                <Typography variant="body1" color="text.secondary" align="center">
-                    Check out the project!
-                </Typography>
-                <div style={{display: "flex", justifyContent: "center"}}>
-                    <Tooltip title="GitHub">
-                        <IconButton>
-                            <a href="https://github.com/hanmangokiwi/Hmmm"
-                               target="_blank"
-                               rel="noreferrer">
-                                <GitHubIcon />
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                </div>
+            </>
+        ),
+        externalLinks: (
+            <>
+                <Tooltip title="PC Gamer Article">
+                    <IconButton>
+                        <a href="https://www.pcgamer.com/this-minecraft-3d-graphing-calculator-is-hypnotic-and-beautiful/"
+                           target="_blank"
+                           rel="noreferrer">
+                            <FeedIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="/r/gaming Reddit Post">
+                    <IconButton>
+                        <a href="https://www.reddit.com/r/gaming/comments/t8nzay/i_made_a_realtime_3d_graphing_calculator_in/"
+                           target="_blank"
+                           rel="noreferrer">
+                            <RedditIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="/r/Minecraft Reddit Post">
+                    <IconButton>
+                        <a href="https://www.reddit.com/r/Minecraft/comments/fgzvi9/i_made_a_realtime_3d_graphing_calculator_in/"
+                           target="_blank"
+                           rel="noreferrer">
+                            <RedditIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="YouTube">
+                    <IconButton>
+                        <a href="https://youtu.be/qeyp5FN_WKk"
+                           target="_blank"
+                           rel="noreferrer">
+                            <YouTubeIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="GitHub">
+                    <IconButton>
+                        <a href="https://github.com/hanmangokiwi/Hmmm"
+                           target="_blank"
+                           rel="noreferrer">
+                            <GitHubIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
             </>
         )
     },
@@ -276,21 +335,28 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
             <>
                 <VideoPlayer type="gfycat" videoLink="https://thumbs.gfycat.com/FatLivelyArcticseal-mobile.mp4" autoplay={true}/>
                 <Markdown md="mcmv"/>
-
-                <Typography variant="body1" color="text.secondary" align="center">
-                    Check out the project!
-                </Typography>
-                <div style={{display: "flex", justifyContent: "center"}}>
-                    <Tooltip title="GitHub">
-                        <IconButton>
-                            <a href="https://github.com/hanmangokiwi/MCMV"
-                               target="_blank"
-                               rel="noreferrer">
-                                <GitHubIcon />
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                </div>
+            </>
+        ),
+        externalLinks: (
+            <>
+                <Tooltip title="YouTube">
+                    <IconButton>
+                        <a href="https://www.youtube.com/watch?v=L2yVFUgoeBY"
+                           target="_blank"
+                           rel="noreferrer">
+                            <YouTubeIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="GitHub">
+                    <IconButton>
+                        <a href="https://github.com/hanmangokiwi/MCMV"
+                           target="_blank"
+                           rel="noreferrer">
+                            <GitHubIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
             </>
         )
     },
@@ -303,20 +369,28 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
             <>
                 <VideoPlayer type="iframe" videoLink="https://www.youtube.com/embed/sLClfQdmzPw"/>
                 <Markdown md="mcminer"/>
-                <Typography variant="body1" color="text.secondary" align="center">
-                    Check out the project!
-                </Typography>
-                <div style={{display: "flex", justifyContent: "center"}}>
-                    <Tooltip title="GitHub">
-                        <IconButton>
-                            <a href="https://github.com/hanmangokiwi/minecraft-ntgbtminer"
-                               target="_blank"
-                               rel="noreferrer">
-                                <GitHubIcon />
-                            </a>
-                        </IconButton>
-                    </Tooltip>
-                </div>
+            </>
+        ),
+        externalLinks: (
+            <>
+                <Tooltip title="YouTube">
+                    <IconButton>
+                        <a href="https://youtu.be/sLClfQdmzPw"
+                           target="_blank"
+                           rel="noreferrer">
+                            <YouTubeIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="GitHub">
+                    <IconButton>
+                        <a href="https://github.com/hanmangokiwi/minecraft-ntgbtminer"
+                           target="_blank"
+                           rel="noreferrer">
+                            <GitHubIcon />
+                        </a>
+                    </IconButton>
+                </Tooltip>
             </>
         )
     },
@@ -394,7 +468,7 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
         },
 }
 
-export default function getProject(projectName: string) {
+export default function getProject(projectName: string): {name: string; subtitle: string; image?: string; video?: string; description: string; content?: ReactElement; externalLinks?: ReactElement} {
     const project = projects[projectName];
     if (!project) {
         return {name: "404", subtitle: "Project not found", description: "This project does not exist", content: <p>This project does not exist</p>}

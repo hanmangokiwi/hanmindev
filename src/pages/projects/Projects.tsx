@@ -1,5 +1,5 @@
 import {Grid, Typography} from "@mui/material";
-import React, {useEffect, useState} from "react";
+import React, {ReactElement, useEffect, useState} from "react";
 import ScrollPage from "../../components/ScrollPage";
 import ProjectCard from "../../components/ProjectCard";
 import {useWindowDimensions} from "../../helpers/hooks";
@@ -18,7 +18,8 @@ function Projects() {
     const { width } = useWindowDimensions();
 
     const [focusedProject, setFocusedProject] = useState("");
-    const [projectDOM, setProjectDOM] = useState(<></>)
+    const [projectDOM, setProjectDOM] = useState<ReactElement | null>(null)
+    const [externalDOM, setExternalDOM] = useState<ReactElement | null>(null)
 
     useEffect(() => {
         if (focusedProject === "") {
@@ -28,7 +29,8 @@ function Projects() {
                 return;
             }
 
-            setProjectDOM(<></>);
+            setProjectDOM(null);
+            setExternalDOM(null);
             return;
         }
         else{
@@ -38,12 +40,19 @@ function Projects() {
             }
 
             const content = getProject(focusedProject).content;
+            const externalLink = getProject(focusedProject).externalLinks;
             document.body.style.overflowY = 'hidden';
 
             if(content){
                 setProjectDOM(content);
             }else{
                 setProjectDOM(<p>This project doesn't have a description yet. Check back later!</p>);
+            }
+
+            if(externalLink){
+                setExternalDOM(externalLink);
+            }else{
+                setExternalDOM(null);
             }
 
         }
@@ -104,7 +113,23 @@ function Projects() {
                         {getProject(focusedProject).subtitle}
                     </Typography>
 
+                    <div style={{display: "flex", justifyContent: "center"}}>
+                        {externalDOM}
+                    </div>
+
                     {projectDOM}
+                    {externalDOM? (
+                        <>
+                            <Typography variant="body1" color="text.secondary" align="center">
+                                Check out the project!
+                            </Typography>
+                            <div style={{display: "flex", justifyContent: "center"}}>
+                                {externalDOM}
+                            </div>
+                        </>
+
+                    ) : <></>
+                    }
                 </div>
             </OverlayPage> : null}
         </>
