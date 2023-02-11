@@ -27,7 +27,7 @@ export default function ProjectCard(props: {project: any}) {
                     },
                 }),
             ]}
-            style={{cursor:'pointer'}}
+            style={{cursor:'pointer', width: '100vw', maxWidth: '90%'}}
 
             onMouseOver={() => setShow(true)}
             onMouseOut={() => setShow(false)}

@@ -5,9 +5,6 @@ import {Link, useNavigate} from "react-router-dom";
 
 
 function Header() {
-
-    const navigate = useNavigate();
-
   return (
       <nav>
           <Link to="/" style={{ textDecoration: 'none' }}>

@@ -2,6 +2,7 @@
     float: bottom;
     background-color: #2a2c2d;
     width: 100%;
+    height: 100px;
     display: flex;
     justify-content: center;
 }
