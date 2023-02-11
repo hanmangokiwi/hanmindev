@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Divider, Stack, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 
 import VideoPlayer from "../components/VideoPlayer";
 import {ExternalLink} from "../components/Links";
@@ -50,7 +50,7 @@ function BoxContent(props: { type: string; videoLink: string; title: any; subtit
                 <Typography variant="h6" paragraph={true}>
                     {props.subtitle}
                 </Typography>
-                <VideoPlayer type={props.type} videoLink={props.videoLink}/>
+                <VideoPlayer type={props.type} videoLink={props.videoLink} autoplay={true}/>
                 <Typography variant="body1" paragraph={true}>
                     {props.description}
                 </Typography>
