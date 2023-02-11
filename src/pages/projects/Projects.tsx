@@ -31,6 +31,11 @@ function Projects() {
             return;
         }
         else{
+            if (!params.projectName) {
+                setFocusedProject("");
+                return;
+            }
+
             const content = getProject(focusedProject).content;
             if(content){
                 setProjectDOM(content);

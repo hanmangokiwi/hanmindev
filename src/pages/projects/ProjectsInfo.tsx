@@ -30,7 +30,9 @@ function Markdown(props: {md: string}) {
                                // eslint-disable-next-line jsx-a11y/alt-text
                                img:({node,...props})=><img style={{maxWidth:'100%'}}{...props} />,
                                // eslint-disable-next-line jsx-a11y/anchor-has-content
-                               a:({node,...props})=><a target="_blank" rel="noreferrer" style={{color: "#3ea0fd"}} {...props}/>
+                               a:({node,...props})=><a target="_blank" rel="noreferrer" style={{color: "#3ea0fd"}} {...props}/>,
+                               // @ts-ignore
+                               video: ({node, ...props}) => <p>{<VideoPlayer type={props.children.toString().split('-')[0]} videoLink={`https://thumbs.gfycat.com/${props.children.toString().split('-')[1]}-mobile.mp4`} play={true} autoplay={true} />}</p>
                            }}/> :
             (
                 <Skeleton variant="rectangular" animation="wave" height={100} />
@@ -108,8 +110,14 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
     'mcmv': {
         name: "MCMV",
         subtitle: "Motion Capture to Voxel Animation Converter",
-        video: "https://thumbs.gfycat.com/WholeLegalGalah-mobile.mp4",
-        description: `Convert your motion capture data into a format compatible with Blockbench to export it as an .OBJ, as a .FBX, to Minecraft, and more!`
+        video: "https://thumbs.gfycat.com/FatLivelyArcticseal-mobile.mp4",
+        description: `Convert your motion capture data into a format compatible with Blockbench to export it as an .OBJ, as a .FBX, to Minecraft, and more!`,
+        content: (
+            <>
+                <VideoPlayer type="gfycat" videoLink="https://thumbs.gfycat.com/FatLivelyArcticseal-mobile.mp4" autoplay={true}/>
+                <Markdown md="mcmv"/>
+            </>
+        )
     },
     'mcminer': {
         name: "Bitcoin Miner in Minecraft",
