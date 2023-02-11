@@ -224,7 +224,7 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
         description: `Tired of moving your hand back and forth from the mouse to the keyboard? The answer is probably no but here it is anyways.`,
         content: (
             <>
-                <VideoPlayer type="iframe" videoLink="https://www.youtube.com/embed/25-bn42cae4"/>
+                <VideoPlayer type="gfycat" videoLink="https://thumbs.gfycat.com/PlushMelodicCopperhead-mobile.mp4" autoplay={true}/>
                 <Markdown md="mirrorboard"/>
             </>
         ),
@@ -400,7 +400,7 @@ const projects: {[projectKey: string]: {name: string; subtitle: string; image?: 
     'mc4d': {
         name: "4D Object Rendering in Minecraft",
         subtitle: "Hypercubes make my head hurt",
-        image: "https://i.ytimg.com/vi/ZCv1B4-EwIk/hqdefault.jpg",
+        video: "https://thumbs.gfycat.com/LittleColossalKiwi-mobile.mp4",
         description: `Surprisingly there aren't many places you can find a 4D object renderer. I made one.`
     },
     'mcwave': {
